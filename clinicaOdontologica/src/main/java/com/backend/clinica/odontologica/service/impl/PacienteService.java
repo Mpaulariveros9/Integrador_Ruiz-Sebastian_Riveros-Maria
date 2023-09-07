@@ -1,13 +1,13 @@
 package com.backend.clinica.odontologica.service.impl;
 
 
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.entrada.modificacion.PacienteModificacionEntradaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.entity.Paciente;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.exceptions.BadRequestException;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.exceptions.ResourceNotFoundException;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.repository.PacienteRepository;
+import com.backend.clinica.odontologica.dto.entrada.modificacion.PacienteModificacionEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
+import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
+import com.backend.clinica.odontologica.entity.Paciente;
+import com.backend.clinica.odontologica.exceptions.BadRequestException;
+import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
+import com.backend.clinica.odontologica.repository.PacienteRepository;
 import com.backend.clinica.odontologica.service.IPacienteService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
