@@ -1,7 +1,7 @@
 package com.backend.clinica.odontologica.service.impl;
 
 
-import com.backend.clinica.odontologica.dto.entrada.modificacion.TurnoModificadoEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.modificacion.TurnoModificacionEntradaDto;
 import com.backend.clinica.odontologica.dto.entrada.turno.TurnoEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
@@ -101,7 +101,7 @@ public class TurnoService implements ITurnoService {
     }
 
     @Override
-    public TurnoSalidaDto modificarTurno(TurnoModificadoEntradaDto turnoModificado) {
+    public TurnoSalidaDto modificarTurno(TurnoModificacionEntradaDto turnoModificado) {
         Turno turnoRecibido = modelMapper.map(turnoModificado, Turno.class);
         Turno turnoAModificar = turnoRepository.findById(turnoRecibido.getId()).orElse(null);
         TurnoSalidaDto turnoSalidaDto = null;
