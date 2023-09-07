@@ -1,6 +1,6 @@
 package com.backend.clinica.odontologica.controller;
 
-import com.backend.clinica.odontologica.dto.entrada.modificacion.TurnoModificadoEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.modificacion.turnoModificadoEntradaDto;
 import com.backend.clinica.odontologica.dto.entrada.turno.TurnoEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.turno.TurnoSalidaDto;
 import com.backend.clinica.odontologica.exceptions.BadRequestException;

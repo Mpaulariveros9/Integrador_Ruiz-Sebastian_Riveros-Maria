@@ -1,15 +1,15 @@
 package com.backend.clinica.odontologica.service.impl;
 
 
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.entrada.modificacion.TurnoModificadoEntradaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.entrada.turno.TurnoEntradaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.dto.salida.turno.TurnoSalidaDto;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.entity.Turno;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.exceptions.BadRequestException;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.exceptions.ResourceNotFoundException;
-import com.backend.clinica.proyecto.integrador.clinica.odontologica.repository.TurnoRepository;
+import com.backend.clinica.odontologica.dto.entrada.modificacion.TurnoModificadoEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.turno.TurnoEntradaDto;
+import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
+import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
+import com.backend.clinica.odontologica.dto.salida.turno.TurnoSalidaDto;
+import com.backend.clinica.odontologica.entity.Turno;
+import com.backend.clinica.odontologica.exceptions.BadRequestException;
+import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
+import com.backend.clinica.odontologica.repository.TurnoRepository;
 import com.backend.clinica.odontologica.service.ITurnoService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
