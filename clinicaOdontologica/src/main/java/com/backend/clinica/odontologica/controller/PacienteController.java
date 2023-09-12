@@ -1,6 +1,8 @@
 package com.backend.clinica.odontologica.controller;
 
 
+import com.backend.clinica.odontologica.dto.entrada.modificacion.PacienteModificacionEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
 import com.backend.clinica.odontologica.service.IPacienteService;

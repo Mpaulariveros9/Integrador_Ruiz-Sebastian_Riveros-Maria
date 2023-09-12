@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.backend</groupId>
-    <artifactId>clinica-odontologica</artifactId>
+    <artifactId>Maria</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>clinica-odontologica</name>
     <description>Proyecto integrador Backend I - CTD</description>
