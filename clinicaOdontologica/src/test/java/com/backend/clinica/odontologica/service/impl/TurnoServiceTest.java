@@ -1,74 +1,92 @@
-package com.backend.clinica.odontologica.service.impl;
-
+import com.backend.clinica.odontologica.dto.entrada.odontologo.OdontologoEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.paciente.DomicilioEntradaDto;
+import com.backend.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinica.odontologica.dto.entrada.turno.TurnoEntradaDto;
+import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
+import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.clinica.odontologica.dto.salida.turno.TurnoSalidaDto;
-import com.backend.clinica.odontologica.entity.Odontologo;
-import com.backend.clinica.odontologica.entity.Paciente;
-import com.backend.clinica.odontologica.entity.Turno;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
+import com.backend.clinica.odontologica.service.impl.OdontologoService;
+import com.backend.clinica.odontologica.service.impl.PacienteService;
+import com.backend.clinica.odontologica.service.impl.TurnoService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
-class TurnoServiceTest {
+public class TurnoServiceTest {
 
     @Autowired
     private TurnoService turnoService;
 
+    @Autowired
+    private OdontologoService odontologoService;
+
+    @Autowired
+    private PacienteService pacienteService;
+
+    private Long pacienteId;
+    private Long odontologoId;
+
+    @BeforeEach
+    void setUp() throws ResourceNotFoundException {
+        // Crea un paciente
+        PacienteEntradaDto pacienteEntradaDto = new PacienteEntradaDto("Juan", "Diaz", 111111, LocalDate.of(2023, 12, 9), new DomicilioEntradaDto("calle", 1232, "localidad", "provincia"));
+        PacienteSalidaDto pacienteSalidaDto = pacienteService.registrarPaciente(pacienteEntradaDto);
+        pacienteId = pacienteSalidaDto.getId();
+
+        // Crea un odontólogo
+        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto("Matricula000", "Dr. Garzon");
+        OdontologoSalidaDto odontologoSalidaDto = odontologoService.registrarOdontologo(odontologoEntradaDto);
+        odontologoId = odontologoSalidaDto.getId();
+    }
+
     @Test
     @Order(1)
-    void deberiaInsertarUnTurnoConIdGenerado() {
-        // Arrange
-        Odontologo odontologo = new Odontologo("123", "Max", "Stravos");
-        Paciente paciente = new Paciente("Juan", "Perez", 111111);
-        LocalDateTime fechaYHora = LocalDateTime.of(2023, 12, 9, 10, 0);
+    void deberiaInsertarYRecuperarUnTurno() throws ResourceNotFoundException {
+        // Crea un turno
+        TurnoEntradaDto turnoEntradaDto = new TurnoEntradaDto();
+        turnoEntradaDto.setOdontologoId(odontologoId);
+        turnoEntradaDto.setPacienteId(pacienteId);
+        turnoEntradaDto.setFechaYHora(LocalDateTime.of(2023, 12, 10, 14, 0));
 
-        TurnoEntradaDto turnoEntradaDto = new TurnoEntradaDto(odontologo, paciente, fechaYHora);
+        // Registra el turno
+        TurnoSalidaDto turnoSalidaDto = turnoService.registrarTurno(turnoEntradaDto);
 
-        // Act
-        ResponseEntity<TurnoSalidaDto> response = turnoService.registrarTurno(turnoEntradaDto);
+        assertNotNull(turnoSalidaDto.getId());
 
-        // Assert
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertNotNull(response.getBody().getId());
+        // Recupera el turno y verifica que los datos sean consistentes
+        TurnoSalidaDto turnoRecuperado = turnoService.buscarTurnoPorId(turnoSalidaDto.getId());
+
+        assertEquals(odontologoId, turnoRecuperado.getOdontologo().getId());
+        assertEquals(pacienteId, turnoRecuperado.getPaciente().getId());
+        assertEquals(LocalDateTime.of(2023, 12, 10, 14, 0), turnoRecuperado.getFechaYHora());
     }
 
     @Test
     @Order(2)
-    void deberiaRetornarUnTurnoPorId() throws ResourceNotFoundException {
-        // Arrange
-        Long idTurno = 1L;
-        Odontologo odontologo = new Odontologo("123", "Max", "Stravos");
-        Paciente paciente = new Paciente("Juan", "Perez", 111111);
-        LocalDateTime fechaYHora = LocalDateTime.of(2023, 12, 9, 10, 0);
+    void deberiaRetornarUnaListaNoVaciaDeTurnos() {
+        //  listar turnos
+        List<TurnoSalidaDto> turnos = turnoService.listarTurnos();
 
-        Turno turno = new Turno(odontologo, paciente, fechaYHora);
-        turno.setId(idTurno);
-
-        // Act
-        TurnoSalidaDto turnoSalidaDto = turnoService.buscarTurnoPorId(idTurno);
-
-        // Assert
-        assertNotNull(turnoSalidaDto);
-        assertEquals(idTurno, turnoSalidaDto.getId());
+        assertTrue(turnos.size() > 0);
     }
 
     @Test
     @Order(3)
-    void alIntentarBuscarUnTurnoInexistente_deberiaLanzarUnaResourceNotFoundException() {
-        // Arrange
-        Long idInexistente = 999L;
-
-        // Act & Assert
-        assertThrows(ResourceNotFoundException.class, () -> turnoService.buscarTurnoPorId(idInexistente));
+    void alIntentarEliminarUnTurnoInexistente_deberiaLanzarseUnaResourceNotFoundException() {
+        //  eliminar un turno que no existe
+        assertThrows(ResourceNotFoundException.class, () -> turnoService.eliminarTurno(9999L));
     }
+
 }

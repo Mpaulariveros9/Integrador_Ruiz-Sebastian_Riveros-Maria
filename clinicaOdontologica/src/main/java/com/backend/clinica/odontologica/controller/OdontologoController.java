@@ -6,7 +6,6 @@ import com.backend.clinica.odontologica.dto.entrada.odontologo.OdontologoEntrada
 import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
 import com.backend.clinica.odontologica.service.IOdontologoService;
-import com.backend.clinica.odontologica.service.impl.OdontologoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
