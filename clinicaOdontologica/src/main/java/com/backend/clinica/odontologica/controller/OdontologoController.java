@@ -101,14 +101,4 @@ public class OdontologoController {
         odontologoService.eliminarOdontologo(id);
         return new ResponseEntity<>("Odontologo eliminado correctamente", HttpStatus.NO_CONTENT);
     }
-}           @ApiResponse(responseCode = "500", description = "Server error",
-        content = @Content)
-    })
-@GetMapping()
-public ResponseEntity<List<OdontologoSalidaDto>> listarOdontologos() {
-        return new ResponseEntity<>(odontologoService.listarOdontologos(), HttpStatus.OK);
-        }
-
-//DELETE
-@Operation(summary = "Eliminación de un odontologo por Id")
-@ApiResponses(value = {
+}
