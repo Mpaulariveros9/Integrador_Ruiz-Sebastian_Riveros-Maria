@@ -1,28 +1,18 @@
 package com.backend.clinica.odontologica.controller;
 
 
-import com.backend.clinica.odontologica.dto.entrada.modificacion.OdontologoModificacionEntradaDto;
-import com.backend.clinica.odontologica.dto.entrada.modificacion.PacienteModificacionEntradaDto;
-import com.backend.clinica.odontologica.dto.entrada.odontologo.OdontologoEntradaDto;
-import com.backend.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
-import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
-import com.backend.clinica.odontologica.exceptions.BadRequestException;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
-import com.backend.clinica.odontologica.service.IOdontologoService;
-import com.backend.clinica.odontologica.service.IPacienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 

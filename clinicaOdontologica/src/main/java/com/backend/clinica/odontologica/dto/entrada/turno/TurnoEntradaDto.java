@@ -1,6 +1,5 @@
 package com.backend.clinica.odontologica.dto.entrada.turno;
 
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -55,4 +54,3 @@ public class TurnoEntradaDto {
         this.fechaYHora = fechaYHora;
     }
 }
-

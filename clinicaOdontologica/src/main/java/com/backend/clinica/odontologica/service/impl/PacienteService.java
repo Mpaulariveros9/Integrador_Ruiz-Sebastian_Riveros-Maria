@@ -5,7 +5,6 @@ import com.backend.clinica.odontologica.dto.entrada.modificacion.PacienteModific
 import com.backend.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.clinica.odontologica.entity.Paciente;
-import com.backend.clinica.odontologica.exceptions.BadRequestException;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
 import com.backend.clinica.odontologica.repository.PacienteRepository;
 import com.backend.clinica.odontologica.service.IPacienteService;
@@ -31,57 +30,63 @@ public class PacienteService implements IPacienteService {
 
 
     public PacienteSalidaDto registrarPaciente(PacienteEntradaDto paciente) {
-        Paciente pacGuardado = pacienteRepository.save(modelMapper.map(paciente, Paciente.class));
-        PacienteSalidaDto pacienteSalidaDto = modelMapper.map(pacGuardado, PacienteSalidaDto.class);
+        Paciente pacGuardado = pacienteRepository.save(dtoEntradaAEntidad(paciente));
+        PacienteSalidaDto pacienteSalidaDto = entidadADtoSalida(pacGuardado);
         LOGGER.info("Paciente guardado: {}", pacienteSalidaDto);
         return pacienteSalidaDto;
     }
 
     @Override
-
-    public PacienteSalidaDto modificarPaciente(PacienteModificacionEntradaDto pacienteModificado) {
-        Paciente pacienteRecibido = modelMapper.map(pacienteModificado, Paciente.class);
-        Paciente pacienteAModificar = pacienteRepository.findById(pacienteRecibido.getId()).orElse(null);
-        PacienteSalidaDto pacienteSalidaDto = null;
-
-        if (pacienteAModificar != null) {
-
-            pacienteAModificar = pacienteRecibido;
-            pacienteRepository.save(pacienteAModificar);
-
-            pacienteSalidaDto = modelMapper.map(pacienteAModificar, PacienteSalidaDto.class);
-
-            LOGGER.warn("Odontologo actualizado: {}", pacienteSalidaDto);
-
-        } else LOGGER.error("No fue posible actualizar los datos ya que el paciente no se encuentra registrado");
-
-
-        return pacienteSalidaDto;
-    }
-
-
-
     public PacienteSalidaDto buscarPacientePorId(Long id) {
         Paciente pacienteBuscado = pacienteRepository.findById(id).orElse(null);
 
         PacienteSalidaDto pacienteSalidaDto = null;
-        if(pacienteBuscado != null){
-            pacienteSalidaDto = modelMapper.map(pacienteBuscado, PacienteSalidaDto.class);
+        if (pacienteBuscado != null) {
+            pacienteSalidaDto = entidadADtoSalida(pacienteBuscado);
             LOGGER.info("Paciente encontrado: {}", pacienteSalidaDto);
         } else LOGGER.error("El id no se encuentra registrado en la base de datos");
 
         return pacienteSalidaDto;
     }
 
+    @Override
     public List<PacienteSalidaDto> listarPacientes() {
         List<PacienteSalidaDto> pacientes = pacienteRepository.findAll().stream()
-                .map(o -> modelMapper.map(o, PacienteSalidaDto.class)).toList();
+                .map(this::entidadADtoSalida).toList();
 
         LOGGER.info("Listado de todos los pacientes: {}", pacientes);
 
         return pacientes;
     }
 
+
+    @Override
+    public PacienteSalidaDto modificarPaciente(PacienteModificacionEntradaDto pacienteModificado) throws ResourceNotFoundException {
+        Paciente pacienteRecibido = dtoModificadoAEntidad(pacienteModificado);
+        Paciente pacienteAActualizar = pacienteRepository.findById(pacienteModificado.getId()).orElse(null);
+        PacienteSalidaDto pacienteSalidaDto = null;
+
+        if (pacienteAActualizar != null) {
+
+            pacienteAActualizar = pacienteRecibido;
+            pacienteRepository.save(pacienteAActualizar);
+
+            pacienteSalidaDto = entidadADtoSalida(pacienteAActualizar);
+
+            LOGGER.warn("Paciente actualizado: {}", pacienteSalidaDto);
+
+        } else {
+            LOGGER.error("No fue posible actualizar los datos ya que el paciente no se encuentra registrado");
+            throw new ResourceNotFoundException("No fue posible actualizar los datos ya que el paciente no se encuentra registrado");
+        }
+
+
+        return pacienteSalidaDto;
+
+    }
+
+
+    @Override
     public void eliminarPaciente(Long id) throws ResourceNotFoundException {
         if (buscarPacientePorId(id) != null) {
             pacienteRepository.deleteById(id);
@@ -93,6 +98,7 @@ public class PacienteService implements IPacienteService {
 
     }
 
+
     private void configureMapping() {
         modelMapper.typeMap(PacienteEntradaDto.class, Paciente.class)
                 .addMappings(mapper -> mapper.map(PacienteEntradaDto::getDomicilio, Paciente::setDomicilio));
@@ -103,15 +109,17 @@ public class PacienteService implements IPacienteService {
 
     }
 
-    public Paciente dtoEntradaAEntidad(PacienteEntradaDto pacienteEntradaDto) {
+    private Paciente dtoEntradaAEntidad(PacienteEntradaDto pacienteEntradaDto) {
         return modelMapper.map(pacienteEntradaDto, Paciente.class);
     }
 
-    public PacienteSalidaDto entidadADtoSalida(Paciente paciente) {
+    private PacienteSalidaDto entidadADtoSalida(Paciente paciente) {
         return modelMapper.map(paciente, PacienteSalidaDto.class);
     }
 
     public Paciente dtoModificadoAEntidad(PacienteModificacionEntradaDto pacienteEntradaDto) {
         return modelMapper.map(pacienteEntradaDto, Paciente.class);
     }
+
+
 }

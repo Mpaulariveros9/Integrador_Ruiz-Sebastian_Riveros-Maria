@@ -1,26 +1,29 @@
 package com.backend.clinica.odontologica.dto.salida.turno;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OdontologoTurnoSalidaDto {
 
 
-    private int id;
+    private Long id;
     private String nombre;
     private String apellido;
 
     public OdontologoTurnoSalidaDto() {
     }
 
-    public OdontologoTurnoSalidaDto(int id, String nombre, String apellido) {
+    public OdontologoTurnoSalidaDto(Long id, String nombre, String apellido) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,5 +41,10 @@ public class OdontologoTurnoSalidaDto {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id + " - Nombre: " + nombre + " - Apellido: " + apellido;
     }
 }

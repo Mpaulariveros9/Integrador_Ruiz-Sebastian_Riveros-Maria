@@ -20,12 +20,13 @@ public class DomicilioSalidaDto {
         this.provincia = provincia;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+
+    public Long getId() {
+        return id;
     }
 
     public String getCalle() {
@@ -58,5 +59,10 @@ public class DomicilioSalidaDto {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id + " - Calle: " + calle + " - Numero: " + numero + " - Localidad: " + localidad + " - Provincia: " + provincia;
     }
 }
