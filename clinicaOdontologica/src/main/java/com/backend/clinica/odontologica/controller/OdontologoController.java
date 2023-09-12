@@ -1,6 +1,7 @@
 package com.backend.clinica.odontologica.controller;
 
 
+import com.backend.clinica.odontologica.dto.entrada.odontologo.OdontologoEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
-@RestController
 
 @RestController
 @RequestMapping("/odontologos")
