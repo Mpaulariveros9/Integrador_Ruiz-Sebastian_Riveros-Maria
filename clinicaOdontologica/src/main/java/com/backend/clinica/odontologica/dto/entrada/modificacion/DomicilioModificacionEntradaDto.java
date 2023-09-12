@@ -2,24 +2,30 @@ package com.backend.clinica.odontologica.dto.entrada.modificacion;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DomicilioModificacionEntradaDto {
 
-    @NotNull
+    @NotNull(message = "Indique el id del domicilio que se desea modificar")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "El campo calle esta vacio")
+    @NotBlank(message = "El campo calle esta vacio")
     private String calle;
 
-    @NotNull
-    private int numero;
+    @NotNull(message = "El numero esta vacio")
+    @Digits(integer = 8, fraction = 0, message = "El número puede tener máximo 8 dígitos")
+    private Integer numero;
 
-    @NotNull
+    @NotNull(message = "La localidad no debe estar vacia")
+    @NotBlank(message = "Llene el campo localidad")
     private String localidad;
 
-    @NotNull
+    @NotNull(message = "La provincia no debe estar vacia")
+    @NotBlank(message = "llene el nombre de la provincia")
     private String provincia;
 
     public DomicilioModificacionEntradaDto() {
