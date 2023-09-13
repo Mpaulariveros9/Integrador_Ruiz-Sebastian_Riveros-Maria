@@ -1,41 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Formulario de Creación y Eliminación de Usuarios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental</title>
+    <style>
+        /* Estilos de la barra de navegación */
+        .navbar {
+            background-color: #007bff; /* Color de fondo de la barra de navegación */
+            color: #fff; /* Color del texto de la barra de navegación */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        /* Estilos del logo */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Estilos de los elementos del menú */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<h1>Crear Usuario</h1>
-<form action="" method="post">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
-    <br><br>
-
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" required>
-    <br><br>
-
-    <label for="dni">DNI:</label>
-    <input type="text" id="dni" name="dni" required>
-    <br><br>
-
-    <label for="fecha_ingreso">Fecha de Ingreso:</label>
-    <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
-    <br><br>
-
-    <label for="domicilio">Domicilio:</label>
-    <input type="text" id="domicilio" name="domicilio" required>
-    <br><br>
-
-    <input type="submit" value="Crear Usuario">
-</form>
-
-<h1>Eliminar Usuario</h1>
-<form action="" method="post">
-    <label for="id">ID del Usuario:</label>
-    <input type="text" id="id" name="id" required>
-    <br><br>
-
-    <input type="submit" value="Eliminar Usuario">
-</form>
+<div class="navbar">
+    <div class="logo">Logo de la Clínica</div>
+    <ul>
+        <li><a href="#">Odontólogo</a></li>
+        <li><a href="#">Paciente</a></li>
+        <li><a href="#">Turnos</a></li>
+    </ul>
+</div>
 </body>
 </html>
