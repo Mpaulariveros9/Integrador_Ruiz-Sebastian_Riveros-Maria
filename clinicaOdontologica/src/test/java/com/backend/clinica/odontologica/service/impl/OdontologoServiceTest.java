@@ -32,9 +32,14 @@ class OdontologoServiceTest {
 
     @Test
     @Order(2)
-    void deberiaRetornarseUnaListaNoVaciaDeOdontologos(){
+    void deberiaRetornarseUnaListaNoVaciaDeOdontologos() {
+        // Inserta un odontólogo de prueba en la base de datos antes de verificar la lista
+        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto("456", "John", "Doe");
+        odontologoService.registrarOdontologo(odontologoEntradaDto);
+
         assertTrue(odontologoService.listarOdontologos().size() > 0);
     }
+
 
     @Test
     @Order(3)

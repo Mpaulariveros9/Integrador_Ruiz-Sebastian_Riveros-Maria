@@ -9,6 +9,7 @@ import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.clinica.odontologica.dto.salida.turno.TurnoSalidaDto;
 import com.backend.clinica.odontologica.exceptions.BadRequestException;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
+import org.modelmapper.ModelMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -45,8 +46,8 @@ public class TurnoServiceTest {
         PacienteSalidaDto pacienteSalidaDto = pacienteService.registrarPaciente(pacienteEntradaDto);
         pacienteId = pacienteSalidaDto.getId();
 
-        // Crea un odontólogo
-        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto("Matricula000", "Dr. Garzon", "ApellidoOdontologo");
+        // Crea un odontólogo con una matrícula única
+        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto("Matricula" + System.currentTimeMillis(), "Dr. Garzon", "ApellidoOdontologo");
         OdontologoSalidaDto odontologoSalidaDto = odontologoService.registrarOdontologo(odontologoEntradaDto);
         odontologoId = (long) odontologoSalidaDto.getId();
     }
@@ -78,6 +79,8 @@ public class TurnoServiceTest {
         assertEquals(LocalDateTime.of(2023, 12, 10, 14, 0), turnoRecuperado.getFechaYHora());
     }
 
+
+
     @Test
     void deberiaRetornarNullSiElIdNoExiste() {
         TurnoSalidaDto turnoSalidaDto = turnoService.buscarTurnoPorId(2L);
@@ -93,7 +96,7 @@ public class TurnoServiceTest {
     @Test
     @Order(2)
     void deberiaRetornarUnaListaNoVaciaDeTurnos() {
-        //  listar turnos
+        // Listar turnos
         List<TurnoSalidaDto> turnos = turnoService.listarTurnos();
 
         assertTrue(turnos.size() > 0);
@@ -102,8 +105,7 @@ public class TurnoServiceTest {
     @Test
     @Order(3)
     void alIntentarEliminarUnTurnoInexistente_deberiaLanzarseUnaResourceNotFoundException() {
-        //  eliminar un turno que no existe
+        // Eliminar un turno que no existe
         assertThrows(ResourceNotFoundException.class, () -> turnoService.eliminarTurno(9999L));
     }
-
 }
