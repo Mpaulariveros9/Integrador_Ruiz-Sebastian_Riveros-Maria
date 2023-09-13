@@ -1,3 +1,5 @@
+package com.backend.clinica.odontologica.service.impl;
+
 import com.backend.clinica.odontologica.dto.entrada.odontologo.OdontologoEntradaDto;
 import com.backend.clinica.odontologica.dto.entrada.paciente.DomicilioEntradaDto;
 import com.backend.clinica.odontologica.dto.entrada.paciente.PacienteEntradaDto;
@@ -5,10 +7,8 @@ import com.backend.clinica.odontologica.dto.entrada.turno.TurnoEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.clinica.odontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.clinica.odontologica.dto.salida.turno.TurnoSalidaDto;
+import com.backend.clinica.odontologica.exceptions.BadRequestException;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
-import com.backend.clinica.odontologica.service.impl.OdontologoService;
-import com.backend.clinica.odontologica.service.impl.PacienteService;
-import com.backend.clinica.odontologica.service.impl.TurnoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -46,9 +46,9 @@ public class TurnoServiceTest {
         pacienteId = pacienteSalidaDto.getId();
 
         // Crea un odontólogo
-        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto("Matricula000", "Dr. Garzon");
+        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto("Matricula000", "Dr. Garzon", "ApellidoOdontologo");
         OdontologoSalidaDto odontologoSalidaDto = odontologoService.registrarOdontologo(odontologoEntradaDto);
-        odontologoId = odontologoSalidaDto.getId();
+        odontologoId = (long) odontologoSalidaDto.getId();
     }
 
     @Test
@@ -61,16 +61,33 @@ public class TurnoServiceTest {
         turnoEntradaDto.setFechaYHora(LocalDateTime.of(2023, 12, 10, 14, 0));
 
         // Registra el turno
-        TurnoSalidaDto turnoSalidaDto = turnoService.registrarTurno(turnoEntradaDto);
+        TurnoSalidaDto turnoSalidaDto = null;
+        try {
+            turnoSalidaDto = turnoService.registrarTurno(turnoEntradaDto);
+        } catch (BadRequestException e) {
+            throw new RuntimeException(e);
+        }
 
         assertNotNull(turnoSalidaDto.getId());
 
         // Recupera el turno y verifica que los datos sean consistentes
         TurnoSalidaDto turnoRecuperado = turnoService.buscarTurnoPorId(turnoSalidaDto.getId());
 
-        assertEquals(odontologoId, turnoRecuperado.getOdontologo().getId());
-        assertEquals(pacienteId, turnoRecuperado.getPaciente().getId());
+        assertEquals(odontologoId, turnoRecuperado.getOdontologoTurnoSalidaDto().getId());
+        assertEquals(pacienteId, turnoRecuperado.getPacienteTurnoSalidaDto().getId());
         assertEquals(LocalDateTime.of(2023, 12, 10, 14, 0), turnoRecuperado.getFechaYHora());
+    }
+
+    @Test
+    void deberiaRetornarNullSiElIdNoExiste() {
+        TurnoSalidaDto turnoSalidaDto = turnoService.buscarTurnoPorId(2L);
+        assertNull(turnoSalidaDto);
+    }
+
+    @Test
+    void deberiaBuscarTurnoPorId1() {
+        TurnoSalidaDto turnoSalidaDto = turnoService.buscarTurnoPorId(1L);
+        assertNull(turnoSalidaDto);
     }
 
     @Test

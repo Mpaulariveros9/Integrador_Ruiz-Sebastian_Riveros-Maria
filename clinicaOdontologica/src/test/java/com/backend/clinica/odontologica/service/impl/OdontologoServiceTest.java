@@ -1,5 +1,6 @@
 package com.backend.clinica.odontologica.service.impl;
 
+import com.backend.clinica.odontologica.dto.entrada.modificacion.OdontologoModificacionEntradaDto;
 import com.backend.clinica.odontologica.dto.entrada.odontologo.OdontologoEntradaDto;
 import com.backend.clinica.odontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.clinica.odontologica.exceptions.ResourceNotFoundException;
@@ -38,9 +39,9 @@ class OdontologoServiceTest {
     @Test
     @Order(3)
     void alIntentarActualizarUnOdontologoInexistente_deberiaLanzarseUnaResourceNotFoundException(){
-        OdontologoEntradaDto odontologoEntradaDto = new OdontologoEntradaDto();
-        odontologoEntradaDto.setId(999L); // Supongamos que 999L es un ID que no existe
-        assertThrows(ResourceNotFoundException.class, () -> odontologoService.actualizarOdontologo(odontologoEntradaDto));
+        OdontologoModificacionEntradaDto odontologoModificacionEntradaDto = new OdontologoModificacionEntradaDto();
+        odontologoModificacionEntradaDto.setId(00L); //Supongamos que 00L es un ID que no existe
+        assertThrows(ResourceNotFoundException.class, () -> odontologoService.actualizarOdontologo(odontologoModificacionEntradaDto));
     }
 
     @Test
