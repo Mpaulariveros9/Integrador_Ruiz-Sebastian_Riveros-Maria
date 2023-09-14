@@ -18,6 +18,8 @@ window.addEventListener('load', function () {
                 }
         };
 
+        /*Usamos la función fetch la API con el método POST, el cual, guardará
+        el paciente que enviaremos en formato JSON*/
         const url = 'pacientes/registrar';
         const settings = {
             method: 'POST',
@@ -31,13 +33,13 @@ window.addEventListener('load', function () {
             .then(response => response.json())
             .then(data => {
                  document.querySelector('#pacienteRegistrado').style.display = "block";
-                 pacienteRegistrado.innerHTML = '<p>Paciente registrado exitosamente</p>';
+                 pacienteRegistrado.innerHTML = '<p>Se registro correctamente</p>';
                  resetUploadForm();
 
             })
             .catch(error => {
              document.querySelector('#pacienteRegistrado').style.display = "block";
-                    pacienteRegistrado.innerHTML = '<p>Paciente no se pudo registrar</p>' ;
+                    pacienteRegistrado.innerHTML = '<p>No se pude hacer el registro</p>' ;
              resetUploadForm();
             })
     });
@@ -52,5 +54,4 @@ window.addEventListener('load', function () {
         document.querySelector('#localidad').value = "";
         document.querySelector('#provincia').value = "";
     }
-        
 })
