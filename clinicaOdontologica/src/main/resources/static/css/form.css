@@ -1,0 +1,61 @@
+/* Estilos para el formulario */
+form {
+    background-color: #fff;
+    padding: 15px; /* Reduce el padding para hacerlo más pequeño */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px; /* Reduce el border-radius */
+}
+
+/* Estilos para las etiquetas del formulario */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #009AD6;
+    text-align: left; /* Alinea los textos a la izquierda */
+}
+
+/* Estilos para los campos de entrada del formulario */
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px; /* Reduce el padding */
+    margin-bottom: 8px; /* Reduce el espacio entre campos */
+    border: 1px solid #009AD6;
+    border-radius: 3px; /* Reduce el border-radius */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+/* Estilos para el botón de enviar del formulario */
+button[type="submit"] {
+    background-color: #009AD6;
+    color: #fff;
+    padding: 8px 16px; /* Reduce el padding */
+    border: none;
+    border-radius: 3px; /* Reduce el border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Cambia el color de fondo del botón al pasar el mouse */
+button[type="submit"]:hover {
+    background-color: #007AAE;
+}
+
+/* Estilos para el mensaje de "Paciente Registrado" */
+#pacienteRegistrado {
+    color: #009AD6;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilos para el título del formulario */
+h1 {
+    color: #009AD6;
+    text-align: center;
+}
+
+/* Añade espacio a la derecha de content1 */
+.content1 {
+    margin-right: 20px;
+}
