@@ -15,6 +15,7 @@ window.addEventListener('load', function () {
                     }
                   }
 
+        // Realizar una solicitud para buscar el paciente por ID
         fetch(url,settings)
             .then(response => response.json())
             .then(data => {

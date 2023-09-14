@@ -15,7 +15,7 @@ label {
 }
 
 /* Estilos para los campos de entrada del formulario */
-input[type="text"],
+input[type="text"], input[type="number"],
 input[type="date"] {
     width: 100%;
     padding: 8px;
@@ -50,7 +50,7 @@ button[type="submit"]:hover {
 }
 
 /* Estilos para el título del formulario */
-h1 {
+h2 {
     color: #009AD6;
     text-align: center;
 }
@@ -58,4 +58,49 @@ h1 {
 /* Añade espacio a la derecha de content1 */
 .content1 {
     margin-right: 20px;
+}
+
+/* listar*/
+/* Estilos para la tabla */
+/* Estilos para la tabla */
+.tabla-paciente {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-paciente th,
+.tabla-paciente td {
+    border: 1px solid #009AD6;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabla-paciente th {
+    background-color: #009AD6;
+    color: #fff;
+}
+
+/* Estilos para el título "Listado de Pacientes" */
+.container1 h1 {
+    text-align: center;
+    background-color: #009AD6;
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Estilos para el botón Eliminar en la tabla */
+.btn-eliminar {
+    background-color: #FF5733;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-eliminar:hover {
+    background-color: #D94B28;
 }

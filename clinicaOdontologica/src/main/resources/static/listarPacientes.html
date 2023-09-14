@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Dental Sebas & Maria</title>
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -17,5 +18,40 @@
         <li><a href="#"><i class="fas fa-calendar"></i> Turnos</a></li>
     </ul>
 </div>
+
+<div class="container1">
+    <h2>Listado de Pacientes</h2>
+    <table class="tabla-paciente" id="Tabla">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Dni</th>
+            <th>Fecha de Ingreso</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Lista de pacientes con sus datos -->
+
+        <tr>
+            <td>1</td>
+            <td>Juan</td>
+            <td>Pérez</td>
+            <td>12345678</td>
+            <td>2023-09-15</td>
+            <td><button class="btn-eliminar">Eliminar</button></td>
+        </tr>
+
+        <!-- Más filas de pacientes -->
+
+        </tbody>
+    </table>
+
+</div>
+
+<script src="scripts/listar_paciente.js"></script>
+
 </body>
 </html>
