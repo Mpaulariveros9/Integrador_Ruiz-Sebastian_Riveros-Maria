@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Dental</title>
+    <title>Clínica Dental Sebas & Maria</title>
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
@@ -11,56 +11,66 @@
 <div class="navbar">
     <div class="logo"><a href="index.html"><img src="assets/logo.jpg" alt="Logo de la Clínica" width="100" height="100"></a></div>
     <ul>
-        <li><a href="#">Odontólogo</a></li>
-        <li><a href="paciente.html">Paciente</a></li>
-        <li><a href="#">Turnos</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-user-md"></i> Odontólogo</a></li>
+        <li><a href="paciente.html"><i class="fas fa-user"></i> Paciente</a></li>
+        <li><a href="#"><i class="fas fa-calendar"></i> Turnos</a></li>
     </ul>
 </div>
 
 <!--REGISTRAR PACIENTES-->
-<h1>Crear Usuario</h1>
-<form id="registroPacienteForm">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
-    <br><br>
+<div class="container1">
+    <div class="content1">
+        <div class="image">
+            <img src="assets/profile-interface-animate.svg" alt="registrar">
+        </div>
+    </div>
+    <div class="content1">
+        <h1>Crear Usuario</h1>
+        <form id="registroPacienteForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br><br>
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" required>
-    <br><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+            <br><br>
 
-    <label for="dni">DNI:</label>
-    <input type="text" id="dni" name="dni" required>
-    <br><br>
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required>
+            <br><br>
 
-    <label for="fechaIngreso">Fecha de Ingreso:</label>
-    <input type="date" id="fechaIngreso" name="fechaIngreso" required>
-    <br><br> 
+            <label for="fechaIngreso">Fecha de Ingreso:</label>
+            <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+            <br><br>
 
-    <h3>DOMICILIO</h3>
+            <h3>DOMICILIO</h3>
 
-    <label for="calle">Calle:</label>
-    <input type="text" id="calle" name="calle" required>
-    <br><br>
+            <label for="calle">Calle:</label>
+            <input type="text" id="calle" name="calle" required>
+            <br><br>
 
-    <label for="numero">Numero:</label>
-    <input type="text" id="numero" name="numero" required>
-    <br><br>
+            <label for="numero">Numero:</label>
+            <input type="text" id="numero" name="numero" required>
+            <br><br>
 
-    <label for="localidad">Localidad:</label>
-    <input type="text" id="localidad" name="localidad" required>
-    <br><br>
+            <label for="localidad">Localidad:</label>
+            <input type="text" id="localidad" name="localidad" required>
+            <br><br>
 
-    <label for="provincia">Provincia:</label>
-    <input type="text" id="provincia" name="provincia" required>
-    <br><br>
-    
-    <button type="submit">Registrar</button>
-    
-    <!-- <input type="submit" value="Crear Usuario"> -->
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia" name="provincia" required>
+            <br><br>
 
-    <div id="pacienteRegistrado" style="display:none; margin-top:10px"></div></div>
+            <button type="submit">Registrar</button>
 
-</form>
+            <!-- <input type="submit" value="Crear Usuario"> -->
+
+            <div id="pacienteRegistrado" style="display:none; margin-top:10px"></div></div>
+
+        </form>
+    </div>
+</div>
 <script src="scripts/registrar_paciente.js"></script>
 </body>
 </html>

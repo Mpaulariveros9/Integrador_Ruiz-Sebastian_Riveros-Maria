@@ -6,7 +6,7 @@ body {
 
 /* Estilos de la barra de navegación personalizada */
 .navbar {
-    background-color: #fff; /* Cambia el color de fondo a blanco */
+    background-color: #fff;
     color: #009AD6;
     display: flex;
     justify-content: space-between;
@@ -15,13 +15,9 @@ body {
     margin-bottom: 20px;
 }
 
-.container {
-}
-
 /* Estilos del logo */
 .logo {
     display: flex;
-    align-items: center; /* Centra verticalmente el logo */
 }
 
 .logo img {
@@ -47,7 +43,7 @@ body {
 /* Estilos para los enlaces del menú */
 .navbar a {
     text-decoration: none;
-    font-weight: normal; /* Cambia el grosor de la fuente a normal */
+    font-weight: normal;
     display: flex;
     align-items: center;
     transition: color 0.3s, background-color 0.3s;
@@ -65,7 +61,7 @@ body {
     background-color: #fff;
 }
 
-/* Estilos para el contenido principal */
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -77,7 +73,26 @@ body {
     text-align: center;
 }
 
-/* Estilos para los enlaces en el contenido */
+.container1{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content1 {
+    flex: 1;
+    text-align: center;
+    margin: 20px;
+
+}
+
+.content1 .image img {
+    max-width: 80%;
+}
+
+
 .links {
     display: flex;
     flex-direction: column;
@@ -99,3 +114,71 @@ body {
 .links a:hover {
     background-color: #007AAE;
 }
+
+/* Estilos para la imagen */
+.image img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    margin-right: 20px;
+}
+
+/*esilos form*/
+/* Estilos para el formulario */
+/* Estilos para el formulario */
+form {
+    background-color: #fff;
+    padding: 10px; /* Reduce el padding para hacerlo más pequeño */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px; /* Reduce el border-radius */
+}
+
+/* Estilos para las etiquetas del formulario */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #009AD6;
+    text-align: left; /* Alinea los textos a la izquierda */
+}
+
+/* Estilos para los campos de entrada del formulario */
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px; /* Reduce el padding */
+    margin-bottom: 8px; /* Reduce el espacio entre campos */
+    border: 1px solid #009AD6;
+    border-radius: 3px; /* Reduce el border-radius */
+}
+
+/* Estilos para el botón de enviar del formulario */
+button[type="submit"] {
+    background-color: #009AD6;
+    color: #fff;
+    padding: 8px 16px; /* Reduce el padding */
+    border: none;
+    border-radius: 3px; /* Reduce el border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #007AAE;
+}
+
+#pacienteRegistrado {
+    color: #009AD6;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilos para el título del formulario */
+h1 {
+    color: #009AD6;
+    text-align: center;
+}
+
+
+
