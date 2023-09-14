@@ -21,7 +21,7 @@
 
 <!--REGISTRAR PACIENTES-->
 <h1>Crear Usuario</h1>
-<form action="crear_usuario.php" method="post">
+<form id="registroPacienteForm">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
     <br><br>
@@ -36,13 +36,32 @@
 
     <label for="fecha_ingreso">Fecha de Ingreso:</label>
     <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+    <br><br> 
+
+    <h3>DOMICILIO</h3>
+
+    <label for="calle">Calle:</label>
+    <input type="text" id="calle" name="calle" required>
     <br><br>
 
-    <label for="domicilio">Domicilio:</label>
-    <input type="text" id="domicilio" name="domicilio" required>
+    <label for="numero">Numero:</label>
+    <input type="text" id="numero" name="numero" required>
     <br><br>
+
+    <label for="localidad">Localidad:</label>
+    <input type="text" id="localidad" name="localidad" required>
+    <br><br>
+
+    <label for="provincia">Provincia:</label>
+    <input type="text" id="provincia" name="provincia" required>
+    <br><br>
+    
 
     <input type="submit" value="Crear Usuario">
+
+    <div id="pacienteRegistrado" style="display:none; margin-top:10px"></div></div>
+
 </form>
+<script src="scripts/registrar_paciente.js"></script>
 </body>
 </html>
