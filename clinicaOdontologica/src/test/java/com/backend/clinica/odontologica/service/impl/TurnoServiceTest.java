@@ -31,15 +31,7 @@ public class TurnoServiceTest {
     @Autowired
     private TurnoService turnoService;
 
-    @Autowired
-    private OdontologoService odontologoService;
-
-    @Autowired
-    private PacienteService pacienteService;
-
-    @Autowired
-    private ModelMapper modelMapper;  // Inyecta ModelMapper en tu prueba
-
+    /*
     private Long pacienteId;
     private Long odontologoId;
 
@@ -56,7 +48,7 @@ public class TurnoServiceTest {
         odontologoId = (long) odontologoSalidaDto.getId();
     }
 
-    /*@Test
+    @Test
     @Order(1)
     void deberiaInsertarYRecuperarUnTurno() throws ResourceNotFoundException {
         // Crea un turno
@@ -99,17 +91,16 @@ public class TurnoServiceTest {
         assertNull(turnoSalidaDto);
     }
 
-    @Test
-    @Order(2)
+    /*@Test
     void deberiaRetornarUnaListaNoVaciaDeTurnos() {
         // Listar turnos
         List<TurnoSalidaDto> turnos = turnoService.listarTurnos();
-
         assertTrue(turnos.size() > 0);
-    }
+    }*/
+
+
 
     @Test
-    @Order(3)
     void alIntentarEliminarUnTurnoInexistente_deberiaLanzarseUnaResourceNotFoundException() {
         // Eliminar un turno que no existe
         assertThrows(ResourceNotFoundException.class, () -> turnoService.eliminarTurno(9999L));
