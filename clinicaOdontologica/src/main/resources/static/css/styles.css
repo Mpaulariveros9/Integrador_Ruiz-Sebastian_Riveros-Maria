@@ -1,69 +1,102 @@
+body {
+    margin: 0;
+    background-color: #F5F5DC;
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Estilos de la barra de navegación */
-        body{
-        margin: 0;
-        background-color: #F5F5DC;
-        }
+body {
+    margin: 0;
+    background-color: #F5F5DC;
+}
 
-        .navbar {
-            background-color: #009AD6; /* Color de fondo de la barra de navegación */
-            color: #fff; /* Color del texto de la barra de navegación */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
+.navbar {
+    background-color: #009AD6; /* Color de fondo de la barra de navegación */
+    color: #fff; /* Color del texto de la barra de navegación */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
 
-        /* Estilos del logo */
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+/* Estilos del logo */
+.navbar-brand img {
+    background-color: #fff; /* Fondo blanco para el logo */
+}
 
-        /* Estilos de los elementos del menú */
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+/* Ajusta el color de los iconos */
+.nav-link i {
+    color: #009AD6;
+}
 
-        .navbar li {
-            margin: 0;
-            padding: 0;
-        }
+/* Añade espacio entre los iconos y el texto */
+.nav-link i {
+    margin-right: 5px;
+}
 
-        .navbar a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-        }
+/* Añade espacio alrededor de la barra de navegación */
+.navbar {
+    margin-bottom: 20px;
+}
 
-        /* Estilos menu pacientes*/
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+/* Estilos del logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    color: #009AD6;
+}
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
-        }
+/* Estilos de los elementos del menú */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-        .links a {
-            text-decoration: none;
-            font-size: 18px;
-            margin: 10px 0;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+.navbar li {
+    margin: 0;
+    padding: 0;
+}
 
-        .links a:hover {
-            background-color: #0056b3;
-        }
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Estilos para el contenido principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+
+/* Estilos para los enlaces en el contenido */
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #009AD6;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.links a:hover {
+    background-color: #007AAE;
+}
