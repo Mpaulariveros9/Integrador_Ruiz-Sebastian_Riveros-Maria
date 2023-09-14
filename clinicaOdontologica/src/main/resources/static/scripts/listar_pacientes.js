@@ -56,7 +56,7 @@ window.addEventListener('load', function () {
             }
         })
         .catch(error => {
-            console.error("Error al eliminar el odontólogo:", error);
+            console.error("no pudo Eliminar el odontólogo:", error);
         });
     }
 });

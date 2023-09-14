@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Dental Sebas & Maria</title>
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -17,5 +18,54 @@
         <li><a href="#"><i class="fas fa-calendar"></i> Turnos</a></li>
     </ul>
 </div>
+
+<div class="container1">
+    <div class="content1">
+        <div class="image">
+            <img src="assets/customer-survey-animate.svg" alt="registrar">
+        </div>
+    </div>
+    <div class="content1">
+        <h2>Modificar Paciente</h2>
+        <form id="form-modificar">
+            <label for="paciente_id">Paciente ID:</label>
+            <input class="form-control" id="paciente_id" name="paciente_id"  type="text">
+
+            <label for="nombre">Nombre:</label>
+            <input class="form-control" id="nombre" name="nombre"  type="text">
+
+            <label for="apellido">Apellido:</label>
+            <input class="form-control" id="apellido" name="apellido"  type="text">
+
+            <label for="dni">Dni:</label>
+            <input class="form-control" id="dni" name="dni"  type="number">
+
+            <label for="fechaIngreso">Fecha de ingreso:</label>
+            <input class="form-control" id="fechaIngreso" name="fechaIngreso"  type="date">
+            <br><br>
+
+            <h4>Domicilio</h4>
+
+            <label for="calle">Calle:</label>
+            <input class="form-control" id="calle" name="calle" type="text">
+
+            <label for="numero">Número:</label>
+            <input id="numero" name="numero" required type="number">
+
+            <label for="localidad">Localidad:</label>
+            <input id="localidad" name="localidad"  required type="text">
+
+            <label for="provincia">Provincia:</label>
+            <input id="provincia" name="provincia"  required type="text">
+
+            <div class="text-center custom-btn">
+                <button type="submit">Modificar</button>
+            </div>
+        </form>
+     </div>
+
+    </div>
+</div>
+<script src="scripts/modificar_paciente.js"></script>
 </body>
 </html>
