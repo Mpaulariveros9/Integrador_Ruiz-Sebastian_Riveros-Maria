@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Dental Sebas & Maria</title>
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="navbar">
-    <div class="logo"><a href="index.html"><img src="assets/logo.jpg" alt="Logo de la Clínica" width="100" height="100"></a></div>
+    <div class="logo"><a href="index.html"><img src="assets/logo1.png" alt="Logo de la Clínica" width="100" height="100"></a></div>
     <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="#"><i class="fas fa-user-md"></i> Odontólogo</a></li>
@@ -17,5 +18,25 @@
         <li><a href="#"><i class="fas fa-calendar"></i> Turnos</a></li>
     </ul>
 </div>
+<div class="container1">
+    <div class="content1">
+        <div class="image">
+            <img src="assets/search-engines-animate.svg" alt="registrar">
+        </div>
+    </div>
+    <div class="content1">
+        <h1>Buscar Paciente</h1>
+        <div id="form">
+            <form class="buscarForm">
+                <label>ID del paciente:</label>
+                <input type="number" id="nombre" name="id" placeholder="Ingrese el id del paciente" required>
+                <br><br>
+                <button type="submit">Buscar</button>
+            </form>
+            <div id="pacienteResultado" style="display:none; margin-top:10px"></div>
+        </div>
+    </div>
+</div>
+<script src="scripts/buscar_paciente.js"></script>
 </body>
 </html>
