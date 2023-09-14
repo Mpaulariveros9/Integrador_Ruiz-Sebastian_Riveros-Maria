@@ -1,9 +1,9 @@
 /* Estilos para el formulario */
 form {
     background-color: #fff;
-    padding: 15px; /* Reduce el padding para hacerlo más pequeño */
+    padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 3px; /* Reduce el border-radius */
+    border-radius: 3px;
 }
 
 /* Estilos para las etiquetas del formulario */
@@ -11,27 +11,27 @@ label {
     font-weight: bold;
     margin-bottom: 5px;
     color: #009AD6;
-    text-align: left; /* Alinea los textos a la izquierda */
+    text-align: left;
 }
 
 /* Estilos para los campos de entrada del formulario */
 input[type="text"],
 input[type="date"] {
     width: 100%;
-    padding: 8px; /* Reduce el padding */
-    margin-bottom: 8px; /* Reduce el espacio entre campos */
+    padding: 8px;
+    margin-bottom: 8px;
     border: 1px solid #009AD6;
-    border-radius: 3px; /* Reduce el border-radius */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 /* Estilos para el botón de enviar del formulario */
 button[type="submit"] {
     background-color: #009AD6;
     color: #fff;
-    padding: 8px 16px; /* Reduce el padding */
+    padding: 8px 16px;
     border: none;
-    border-radius: 3px; /* Reduce el border-radius */
+    border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
